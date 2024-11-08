@@ -1,0 +1,59 @@
+title: Page
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: date_field
+            field:
+              type: date
+              display: 'Date Field'
+              validate:
+                - 'before_or_equal:today'
+              width: 50
+          -
+            import: test
+          -
+            handle: bard_field_with_fieldset
+            field:
+              remove_empty_nodes: false
+              type: bard
+              display: 'Bard Field With Fieldset'
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    new_set:
+                      display: 'New Set'
+                      fields:
+                        -
+                          import: test
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

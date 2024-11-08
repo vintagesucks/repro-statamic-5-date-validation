@@ -1,0 +1,10 @@
+title: Test
+fields:
+  -
+    handle: fieldset_date_field
+    field:
+      type: date
+      display: 'Fieldset Date Field'
+      validate:
+        - 'before_or_equal:today'
+      width: 50
